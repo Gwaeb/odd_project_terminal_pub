@@ -327,12 +327,34 @@ namespace App_UI.ViewModels
             /// TODO 03d : Si c'est un nouvel enregistrement, tout plante. Corrigez la situation.
 
             /// TODO 03c : Valider les données de chaque propriété
+            /// 
 
-
-            if (!ReEmail.IsMatch(Email))
+            if (ReProvince.IsMatch(Province))
             {
-                Message += "Le courriel n'a pas le bon format." + Environment.NewLine;
+                if (RePhoneNumber.IsMatch(Phone))
+                {
+                    if (RePostalCode.IsMatch(PostalCode))
+                    {
+                        if (!ReEmail.IsMatch(Email))
+                        {
+                            Message += "Le courriel n'a pas le bon format." + Environment.NewLine;
+                        }
+                    }
+                    else
+                    {
+                        Message += "Le code postal n'a pas le bon format." + Environment.NewLine;
+                    }
+                }
+                else
+                {
+                    Message += "Le téléphone n'a pas le bon format." + Environment.NewLine;
+                }
             }
+            else
+            {
+                Message += "La province n'a pas le bon format." + Environment.NewLine;
+            }
+            
 
             IsDirty = Message != "";
             IsSaveable = Message == "";
