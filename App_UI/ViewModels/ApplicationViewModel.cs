@@ -118,6 +118,7 @@ namespace App_UI.ViewModels
             ChangePageCommand = new DelegateCommand<string>(ChangePage);
             ExportCommand = new DelegateCommand<string>(ExportData);
             NewRecordCommand = new DelegateCommand<string>(RecordCreate);
+            ChangeLanguageCommand = new DelegateCommand<string>(ChangeLanguage); 
 
         }
 
