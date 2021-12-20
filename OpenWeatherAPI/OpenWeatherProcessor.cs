@@ -43,9 +43,9 @@ namespace OpenWeatherAPI
         /// Appel le endpoint One Call API
         /// </summary>
         /// <returns></returns>
-        public async Task<OpenWeatherOneCallModel> GetOneCallAsync()
+        public async Task<OpenWeatherOneCallModel> GetOneCallAsync(string apiKey)
         {
-            
+            ApiKey = apiKey;
             EndPoint = $"/onecall?";
 
             /// Src : https://stackoverflow.com/a/14517976/503842
